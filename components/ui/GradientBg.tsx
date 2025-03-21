@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 
 interface Props {
   gradientBackgroundStart?: string;
@@ -21,12 +20,7 @@ interface Props {
   containerClassName?: string;
 }
 
-// 🧠 Disable SSR to avoid 'document is not defined' error during build
-const BackgroundGradientAnimation = dynamic(() => Promise.resolve(ActualComponent), {
-  ssr: false,
-});
-
-function ActualComponent({
+function BackgroundGradientAnimation({
   gradientBackgroundStart = "rgb(108, 0, 162)",
   gradientBackgroundEnd = "rgb(0, 17, 82)",
   firstColor = "18, 113, 255",
