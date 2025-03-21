@@ -1,12 +1,13 @@
 'use client';
 import dynamic from 'next/dynamic';
-
-// Import props type
 import type { Props } from './GradientBg';
 
-// Use dynamic import and disable SSR
-const BackgroundGradientAnimation = dynamic(
-  () => import('./GradientBg').then((mod) => mod.BackgroundGradientAnimationComponent),
+// ✅ Dynamically import the named export from GradientBg
+const BackgroundGradientAnimation = dynamic<Props>(
+  () =>
+    import('./GradientBg').then(
+      (mod) => mod.BackgroundGradientAnimationComponent
+    ),
   { ssr: false }
 );
 
