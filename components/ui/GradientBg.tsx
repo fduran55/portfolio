@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
-interface Props {
+export interface Props {
   gradientBackgroundStart?: string;
   gradientBackgroundEnd?: string;
   firstColor?: string;
@@ -20,7 +20,7 @@ interface Props {
   containerClassName?: string;
 }
 
-function BackgroundGradientAnimation({
+export function BackgroundGradientAnimationComponent({
   gradientBackgroundStart = "rgb(108, 0, 162)",
   gradientBackgroundEnd = "rgb(0, 17, 82)",
   firstColor = "18, 113, 255",
@@ -90,5 +90,3 @@ function BackgroundGradientAnimation({
     </div>
   );
 }
-
-export default BackgroundGradientAnimation;

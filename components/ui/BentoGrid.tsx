@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import dynamic from "next/dynamic";
 import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
@@ -10,10 +9,8 @@ import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
-// ✅ Dynamically import to avoid SSR issues with document
-const BackgroundGradientAnimation = dynamic(() => import("./GradientBg"), {
-  ssr: false,
-});
+// ✅ Use the dynamic wrapper we created
+import BackgroundGradientAnimation from "./BackgroundGradientAnimation";
 
 export const BentoGrid = ({
   className,
