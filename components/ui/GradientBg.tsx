@@ -68,16 +68,34 @@ export function BackgroundGradientAnimationComponent({
     blendingValue,
   ]);
 
+  // Animate the pointer if interactive is true
   useEffect(() => {
-    function move() {
-      if (!interactiveRef.current) return;
+    if (!interactive) return;
+
+    let animationFrameId: number;
+
+    const animate = () => {
       setCurX((prev) => prev + (tgX - prev) / 20);
       setCurY((prev) => prev + (tgY - prev) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
-    }
 
-    move();
-  }, [tgX, tgY]);
+      if (interactiveRef.current) {
+        interactiveRef.current.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [tgX, tgY, interactive, curX, curY]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!interactive) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    setTgX(event.clientX - rect.left);
+    setTgY(event.clientY - rect.top);
+  };
 
   return (
     <div
@@ -85,8 +103,19 @@ export function BackgroundGradientAnimationComponent({
         "w-full h-full absolute overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
         containerClassName
       )}
+      onMouseMove={handleMouseMove}
     >
       {children}
+
+      {interactive && (
+        <div
+          ref={interactiveRef}
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70`
+          )}
+        />
+      )}
     </div>
   );
 }
