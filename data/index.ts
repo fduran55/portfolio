@@ -93,8 +93,8 @@ export const projects = [
   },
   {
     id: 4,
-    title: "No Subscriptions, YOUR DATA BELONGS TO YOU",
-    des: "The data I collect belongs entirely to the customer, with no subscriptions or hidden fees—ensuring full ownership and control. I design systems that avoid vendor lock-in, allowing customers to access, store, and manage their data freely without reliance on proprietary platforms.",
+    title: "PLC Program/Integration",
+    des: "Integrating and programming PLCs to automate real-world systems.",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
   },
