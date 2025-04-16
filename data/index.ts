@@ -72,22 +72,22 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Remote Access Worldwide",
-    des: "The system integrates with field devices, collects real-time data, and provides a secure interface for monitoring and interaction. This allows for seamless remote operations, troubleshooting, and data analysis, slashing needed physical presence on location.",
+    title: "SCADA and Data",
+    des: "Creating SCADA solutions to monitor, control, and optimize systems.",
     img: "/p1.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
   },
   {
     id: 2,
-    title: "Salesforce Implementation & Optimization",
-    des: "developing and integrating measurement and calibration data, and automating reporting workflows. I also implemented Field Service tools to improve scheduling and data tracking while building executive dashboards for real-time KPIs.",
+    title: "Cloud Data Engineering",
+    des: "I build AWS data pipelines to collect, process, and store at scale.",
     img: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
   },
   {
     id: 3,
-    title: "AI Integration",
-    des: "Developing A REAL machine learning algorithm using experience in using AI to drive projects, using the latest tech stack.",
+    title: "AI-Driven System Integration",
+    des: "I build AI-driven solutions that connect seamlessly with real-world systems.",
     img: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
   },
